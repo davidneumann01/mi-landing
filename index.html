@@ -39,9 +39,49 @@
     </div>
   </section>
 
+    <section id="contact" class="py-20 bg-white">
+  <div class="max-w-2xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-6">Recibe las novedades</h2>
+    <p class="text-gray-600 mb-8">Déjanos tu correo para avisarte cuando el monitor esté disponible.</p>
+
+    <form class="flex flex-col sm:flex-row gap-4 justify-center">
+      <input 
+        type="email" 
+        placeholder="Tu correo electrónico"
+        class="w-full sm:w-auto flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        required
+      >
+      <button 
+        class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
+        Notificarme
+      </button>
+    </form>
+
+    <script>
+    document.querySelector("#subscribe-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.querySelector("#email").value;
+
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      });
+
+      if (res.ok) {
+        alert("¡Gracias! Te avisaremos pronto.");
+      } else {
+        alert("Hubo un error, intenta nuevamente.");
+  }
+});
+</script>
+  </div>
+</section>
+
   <!-- Cómo funciona -->
   <section class="py-20 bg-white px-6 text-center">
-    <h2 class="text-3xl font-bold mb-10">¿Y cómo funciona?</h2>
+    <h2 class="text-3xl font-bold mb-10">¿Cómo funciona?</h2>
     <div class="grid md:grid-cols-4 gap-10 max-w-6xl mx-auto">
       <div class="p-6 bg-gray-100 rounded-xl shadow">
         <h4 class="font-semibold mb-2">1. Pegás el enlace</h4>
@@ -81,7 +121,7 @@
 
       <div class="bg-blue-600 text-white p-8 rounded-xl shadow border-4 border-blue-800">
         <h3 class="text-2xl font-semibold mb-4">Pro</h3>
-        <p class="mb-4">USD 6 / mes</p>
+        <p class="mb-4">USD 5.99 / mes</p>
         <ul class="text-left mb-6 space-y-2">
           <li>✓ 50 productos</li>
           <li>✓ WhatsApp alerts</li>
@@ -93,7 +133,7 @@
 
       <div class="bg-white p-8 rounded-xl shadow border">
         <h3 class="text-2xl font-semibold mb-4">Business</h3>
-        <p class="mb-4">USD 19 / mes</p>
+        <p class="mb-4">USD 19.99 / mes</p>
         <ul class="text-left mb-6 space-y-2">
           <li>✓ 200+ productos</li>
           <li>✓ Actualización cada 1h</li>
