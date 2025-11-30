@@ -44,9 +44,10 @@
     <h2 class="text-3xl font-bold mb-6">Recibe las novedades</h2>
     <p class="text-gray-600 mb-8">Déjanos tu correo para avisarte cuando el monitor esté disponible.</p>
 
-    <form class="flex flex-col sm:flex-row gap-4 justify-center">
+    <form id="subscribe-form" class="flex flex-col sm:flex-row gap-4 justify-center">
       <input 
-        type="email" 
+        id="email"
+        type="email"
         placeholder="Tu correo electrónico"
         class="w-full sm:w-auto flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         required
